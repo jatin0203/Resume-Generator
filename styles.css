@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  color: white;
+  background-color: rgb(24, 224, 224);
+}
+
+.hero-container {
+  /* display: none; */
+  min-height: 100vh;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.resume-info-container {
+  border: 3px solid white;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.col-left,
+.col-right {
+  margin: 2em;
+}
+
+textarea {
+  overflow: hidden;
+}
+
+h1 {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
+.header-span {
+  color: red;
+}
+
+.add-btn {
+  /* background-color: red; */
+  border-radius: 0.3em;
+  width: 40%;
+  transition: all 0.1s ease-in;
+}
+
+.add-btn:hover {
+  transform: scale(1.03);
+  background-color: rgb(214, 44, 44);
+  /* background-color: violet; */
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+#yearQ,
+#yearWE {
+  flex: 40%;
+  margin-right: 4px;
+}
+
+.qF,
+.weF {
+  flex: 50%;
+}
+
+@media screen and (min-width: 992px) {
+  .resume-info-container {
+    width: 80%;
+  }
+}
+
+/* Resume part */
+
+.resume-container {
+  min-height: 100vh;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume {
+  min-height: 700px;
+  width: 80%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.resume-left {
+  height: 100%;
+  background-color: #003147;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.resume-right {
+  height: 100%;
+  background-color: #fff;
+}
+
+.profile-pic {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  /* left: 10%; */
+  overflow: hidden;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.profile-pic img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.profile-text {
+  text-transform: uppercase;
+  text-align: center;
+}
+.profile-text .name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+hr {
+  width: 80%;
+  background-color: white;
+}
+
+.contacts {
+  color: white;
+  width: 80%;
+  /* text-align: left; */
+}
+
+.contacts span {
+  margin-right: 5px;
+}
+
+.left-title {
+  text-transform: uppercase;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.socials {
+  width: 80%;
+}
+
+.socials span {
+  margin-right: 5px;
+}
+.skills {
+  width: 80%;
+}
+.skills .skill {
+  width: 100%;
+}
+.skill .percent {
+  width: 100%;
+  height: 5px;
+  background-color: whitesmoke;
+  display: inline-block;
+  position: relative;
+}
+
+.skill .percent::after {
+  content: "";
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: red;
+}
+
+.languages {
+  width: 80%;
+  text-align: left;
+}
+
+.languages ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resume-right {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  padding-top: 2em;
+}
+
+.resume-right h3 {
+  font-size: 1em;
+  font-weight: bold;
+  color: #003147;
+}
+.resume-right .self-info {
+  margin: 1.4em;
+}
+
+.resume-right hr {
+  background-color: black;
+  width: 95%;
+  margin: auto;
+  height: 1.5px;
+  margin-top: 0.2em;
+}
+
+.resume-right .right-heading {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  margin-left: 1em;
+  /* text-shadow: 2px 2px 2px #ccc; */
+  text-transform: uppercase;
+  color: #003147;
+  font-weight: bolder;
+}
+
+.resume-right .work-exp .box {
+  margin-top: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.resume-right .work-exp .duration_name {
+  min-width: 150px;
+}
+
+.resume-right .work-exp .text {
+  margin-right: 20px;
+}
+
+.resume-right .education .box {
+  margin-top: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.resume-right .education .duration_name {
+  min-width: 150px;
+}
+
+.resume-right .education .text {
+  margin-right: 20px;
+}
+
+.education hr {
+  height: 1.5px;
+}
+
+/* @media print {
+  body * {
+    visibility: hidden;
+  }
+  .resume {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+} */

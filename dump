@@ -1,0 +1,55 @@
+<!-- Work Experience -->
+                    <div id="work-experience" class="mt-3">
+                        <p class='mb-0'>Work Experience</p>
+                        <textarea class="weF form-control" placeholder="Enter Your Work Experience" rows="3"></textarea>
+                        <!-- Button to add WE -->
+                        <div id ='weButton' class="container text-center">
+                        <input onclick=addWE() class="btn btn-primary mt-2  add-btn" type="submit" value="Add">
+                        </div>
+                    </div>
+
+                    <!-- Qualification -->
+                    <div id="qualifications">
+                        <p class='mb-0'>Qualifications</p>
+                        <textarea class="qF form-control" placeholder="Enter Your Qualifications" rows="3"></textarea>
+                        <!-- Button to add qualification -->
+                        <div id='qButton' class="container text-center ">
+                            <input onclick=addQ() class="btn btn-primary mt-2 add-btn" type="submit" value="Add">
+                        </div>
+                    </div
+
+
+
+function addWE(){
+    let weContainer = document.getElementById('work-experience');
+
+    let newDiv = document.createElement('div');
+    newDiv.classList.add('container-fluid');
+    newDiv.classList.add('flex-container');
+    newDiv.setAttribute('placeholder','Enter Your Work Experience');
+    newDiv.setAttribute('rows','3');
+    newDiv.classList.add('weF')
+
+    const weButton = document.getElementById('weButton');
+
+    weContainer.insertBefore(newNode,weButton);
+
+    [...document.getElementsByClassName('weF')].forEach(textArea => textArea.addEventListener('keydown',(e)=> e.shiftKey && e.key === 'Enter' && addWE()))
+}
+
+function addWE(){
+    let weContainer = document.getElementById('work-experience');
+
+    let newNode = document.createElement('textarea');
+    newNode.classList.add('form-control');
+    newNode.classList.add('mt-1');
+    newNode.setAttribute('placeholder','Enter Your Work Experience');
+    newNode.setAttribute('rows','3');
+    newNode.classList.add('weF')
+
+    const weButton = document.getElementById('weButton');
+
+    weContainer.insertBefore(newNode,weButton);
+
+    [...document.getElementsByClassName('weF')].forEach(textArea => textArea.addEventListener('keydown',(e)=> e.shiftKey && e.key === 'Enter' && addWE()))
+}

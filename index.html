@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>  
+    
+    <div class="container-fluid hero-container overlay">
+        <video autoplay muted loop id="myVideo">
+            <source src="./assets/Pexels Videos 2169880.mp4" type="video/mp4">
+        </video>
+        <div class="container-fluid resume-info-container">
+            <h1 class="text-center mt-5"><span class="header-span">Resume</span> Generator</h1>
+
+            <!-- Form resume container Begins-->
+
+            <div class="row">
+
+                <!-- left Column Begins-->
+
+                <div class="col md-6 col-left">
+                    <label for="nameF">Your Name</label>
+                    <textarea 
+                        id="nameF"
+                        class="form-control"
+                        placeholder="Enter Your Name"
+                        rows="1"
+                    ></textarea>
+
+                    <label for="titleF" class="mt-3">Your Title</label>
+                    <textarea 
+                        id="titleF"
+                        class="form-control"
+                        placeholder="Enter Your title"
+                        rows="1"
+                    ></textarea>
+
+                    <label for="addressF" class="mt-3">Your Address</label>
+                    <textarea 
+                        id="addressF" 
+                        class="form-control" 
+                        placeholder="Enter Your Address" 
+                        rows="2"
+                    ></textarea>
+
+                    <label for="phoneF" class="mt-3">Your Contact Number</label>
+                    <textarea 
+                        id="phoneF" 
+                        class="form-control" 
+                        placeholder="Enter Your Contact Number" 
+                        rows="1"
+                    ></textarea>
+
+                    <!-- Email -->
+                    <label for="emailF" class="mt-3">Your Email</label>
+                    <textarea 
+                        id="emailF" 
+                        class="form-control" 
+                        placeholder="Enter Your Email" 
+                        rows="1"
+                    ></textarea>
+
+                    <!-- Facebook -->
+                    <label for="fbF" class="mt-3">Your Facebook</label>
+                    <textarea 
+                        id="fbF" 
+                        class="form-control" 
+                        placeholder="Enter Your FB Link" 
+                        rows="1"
+                    ></textarea>
+                    <!-- Instagram -->
+                    <label for="instaF" class="mt-3">Your Instagram</label>
+                    <textarea 
+                        id="instaF" 
+                        class="form-control" 
+                        placeholder="Enter Your Instagram Link" 
+                        rows="1"
+                    ></textarea>
+                    <!-- LinkedIn -->
+                    <label for="liF" class="mt-3">Your LinkedIN</label>
+                    <textarea 
+                        id="liF" 
+                        class="form-control" 
+                        placeholder="Enter Your LinkedIN Link" 
+                        rows="1"
+                    ></textarea>
+                </div>
+
+                <!-- left Column Ends-->
+
+                <!-- Right Column Begins-->
+                <div class="col md-6 col-right">
+
+                    <!-- Profile -->
+                    <div id="profile">
+                        <p class='mb-0'>Profile</p>
+                        <textarea class="profileF form-control" placeholder="Enter Your Profile Text" rows="3"></textarea>
+                    </div>
+
+                    
+                    <!-- Work Experience -->
+                    <div id="work-experience" class="mt-3">
+                        <p class='mb-0'>Work Experience</p>
+                        <div class="container-fluid flex-container">
+                            <textarea class="form-control" id="yearWE" rows="2" placeholder="Enter Duration and Company"></textarea>
+                            <textarea class="weF form-control" placeholder="Enter Your Work Experience" rows="3"></textarea>
+                        </div>
+                        <!-- Button to add WE -->
+                        <div id='weButton' class="container text-center">
+                            <input onclick=addWE() class="btn btn-primary mt-2  add-btn" type="submit" value="Add">
+                        </div>
+                    </div>
+
+                    <!-- Qualification -->
+                    <div id="qualifications">
+                        <p class='mb-0'>Qualifications</p>
+                        <div class="container-fluid flex-container">
+                            <textarea class="form-control" id="yearQ" rows="2" placeholder="Enter Duration and University"></textarea>
+                            <textarea class="qF form-control" placeholder="Enter Your Qualifications" rows="3"></textarea>
+                        </div>
+                        <!-- Button to add qualification -->
+                        <div id='qButton' class="container text-center ">
+                            <input onclick=addQ() class="btn btn-primary mt-2 add-btn" type="submit" value="Add">
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div id="lang">
+                        <p class='mb-0'>Languages</p>
+                        <textarea class="lF form-control" placeholder="Enter Languages" rows="1"></textarea>
+                        <!-- Button to add language -->
+                        <div id='lButton' class="container text-center ">
+                            <input onclick=addL() class="btn btn-primary mt-2 add-btn" type="submit" value="Add">
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column Ends-->
+            </div>
+
+            <div id='generateButton' class="container text-center ">
+                <input onclick=generate() class="btn btn-primary mt-2 mb-4 add-btn" type="submit" value="Generate CV">
+            </div>
+                
+            <!-- Form resume container Ends-->
+
+        </div>
+    </div>
+
+
+    <!-- Resume -->
+    <div class="resume-container container-fluid">
+        <div class="resume">
+            <!-- left part -->
+            <div class="resume-left">
+                <div class="profile-pic">
+                    <img src="./assets/dummy.png" alt="Profile Pic">
+                </div>
+                <div class="profile-text">
+                    <div class="name">Jatin Singh Kanyal</div>
+                    <div class="title">Web Developer</div>
+                </div>
+                <hr>
+
+                <!-- contacts -->
+                <div class="contacts">
+                    <div class="left-title">Contact</div>
+                    <div><span><i class="fa fa-envelope" aria-hidden="true"></i></span> <span id='resumeEmail'>jatinkanyaljr@gmail.com</span></div>
+                    
+                    <div><span><i class="fa fa-volume-control-phone" aria-hidden="true"></i></span> <span id='resumePhone'> +91 9027******</span></div>
+                    
+                    <div><span><i class="fa fa-globe" aria-hidden="true"></i></span> <span id='resumeAddress'> Haldwani,Uttrakhand</span></div>
+                </div>
+
+                <!-- social -->
+                <div class="socials">
+                    <div class="left-title">Social</div>
+                    <div><span><i class="fa fa-instagram" aria-hidden="true"></i></span> <span id='resumeInsta'> jatinkanyal18</span></div>
+                    
+                    <div><span><i class="fa fa-facebook-official" aria-hidden="true"></i></span> <span id='resumeFb'>jatinkanyal</span></div>
+                    
+                    <div><span><i class="fa fa-linkedin" aria-hidden="true"></i></span> <span id='resumeLi'>jatinkanyalofficial</span></div>
+                    
+                </div>
+
+
+                <!-- Skills -->
+                <div class="skills">
+                    <div class="left-title">Skills</div>
+                    <div class="skill"><span class='skill-name'>HTML</span><span class='percent'></span></div>
+                    <div class="skill"><span class='skill-name'>CSS</span><span class='percent'></span></div>
+                    <div class="skill"><span class='skill-name'>JavaScript</span><span class='percent'></span></div>
+                </div>
+
+                <!-- Languages -->
+                <div class="languages">
+                    <div class="left-title">Languages</div>
+                    <ul>
+                        <li>Hindi</li>
+                        <li>English</li>
+                        <li>Japanese</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- right part -->
+            <div class="resume-right">
+                <!-- <hr> -->
+                <h2 class="right-heading">PROFILE</h2>
+                <hr>
+                <div class="self-info">
+                    
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, nulla blanditiis! Iusto consequuntur harum magni ratione aspernatur, rerum consequatur ipsa temporibus, quasi rem ducimus facere officiis mollitia doloremque hic laborum dolore omnis distinctio nemo sunt enim blanditiis deleniti in quaerat!
+                    <br>
+                    <br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, minus!
+                </div>
+                
+                <!-- work experience -->
+                <div class="work-exp">
+                    <!-- <hr> -->
+                    <h2 class="right-heading">Work Experience</h2>
+                    <hr>
+
+                    <div class="box">
+                        <div class="duration_name">
+                            <h3>2018-Present</h3>
+                            <h3>Amazon</h3>
+                        </div>
+                        <div class="text"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem beatae blanditiis aliquid quis, voluptatum maiores eligendi ex! Et, voluptate animi?</p></div>
+                    </div>
+                    <div class="box">
+                        <div class="duration_name">
+                            <h3>2008-2016</h3>
+                            <h3>Microsoft</h3>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem beatae blanditiis aliquid quis, voluptatum
+                                maiores eligendi ex! Et, voluptate animi?</p>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="duration_name">
+                            <h3>2006-2008</h3>
+                            <h3>Deshaw</h3>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem beatae blanditiis aliquid quis, voluptatum
+                                maiores eligendi ex! Et, voluptate animi?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- education -->
+                <div class="education">
+                    <!-- <hr> -->
+                    <h2 class="right-heading">Education</h2>
+                    <hr>
+                
+                    <div class="box">
+                        <div class="duration_name">
+                            <h3>2017</h3>
+                            <h3>10th Board CBSE</h3>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem beatae blanditiis aliquid quis,
+                                voluptatum maiores eligendi ex! Et, voluptate animi?</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="duration_name">
+                            <h3>2019</h3>
+                            <h3>12th Board CBSE</h3>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem beatae blanditiis aliquid quis,
+                                voluptatum
+                                maiores eligendi ex! Et, voluptate animi?</p>
+                        </div>
+                    </div>
+                
+                    <div class="box">
+                        <div class="duration_name">
+                            <h3>2023</h3>
+                            <h3>BTECH IIT JODHPUR</h3>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem beatae blanditiis aliquid quis,
+                                voluptatum
+                                maiores eligendi ex! Et, voluptate animi?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='printButton' class="container text-center ">
+            <input onclick=printCV() class="btn btn-primary mt-2 mb-4 add-btn" type="submit" value="Print CV">
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
